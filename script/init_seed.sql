@@ -37,7 +37,7 @@ VALUES
         'citra.lestari',
         '$2a$10$PsxArh.naGnJSta9HTVEJObW4fywhC3Ae88fjzgB2PeV/8.DmxPgS',
         'citra.lestari@example.com',
-        NULL,
+        2,
         NOW(),
         FALSE
     ),
@@ -45,7 +45,7 @@ VALUES
         'dimas.pratama',
         '$2a$10$PsxArh.naGnJSta9HTVEJObW4fywhC3Ae88fjzgB2PeV/8.DmxPgS',
         'dimas.pratama@example.com',
-        1,
+        NULL,
         NOW(),
         FALSE
     ),
@@ -53,7 +53,7 @@ VALUES
         'eka.wulandari',
         '$2a$10$PsxArh.naGnJSta9HTVEJObW4fywhC3Ae88fjzgB2PeV/8.DmxPgS',
         'eka.wulandari@example.com',
-        3,
+        5,
         NOW(),
         FALSE
     );

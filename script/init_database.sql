@@ -65,6 +65,8 @@ CREATE TABLE request_access (
     updated_by BIGINT,
     created_by BIGINT NOT NULL,
     last_updated TIMESTAMP,
+    notes varchar(1000),
+    reason_submission varchar(1000),
 
     CONSTRAINT fk_request_access_assign_user FOREIGN KEY (assign_to_user) REFERENCES "user"(id),
     CONSTRAINT fk_request_access_assign_role FOREIGN KEY (assign_to_role) REFERENCES role(id),
@@ -81,6 +83,8 @@ CREATE TABLE request_access_history (
     assign_to_role BIGINT NOT NULL,
     updated_by BIGINT,
     updated_at TIMESTAMP,
+    notes varchar(1000),
+    reason_submission varchar(1000),
 
     CONSTRAINT fk_request_access_history_request FOREIGN KEY (request_access_id) REFERENCES request_access(id),
     CONSTRAINT fk_request_access_history_assign_user FOREIGN KEY (assign_to_user) REFERENCES "user"(id),

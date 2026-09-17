@@ -5,10 +5,7 @@ import com.project.iam.config.process.JwtUtil;
 import com.project.iam.entities.*;
 import com.project.iam.models.request.ApprovalSubmissionRequest;
 import com.project.iam.models.request.SubmissionRequest;
-import com.project.iam.models.response.AccessResp;
-import com.project.iam.models.response.AccessSubmissionResp;
-import com.project.iam.models.response.BasePaginationResponse;
-import com.project.iam.models.response.SimpleSubmissionDetailDto;
+import com.project.iam.models.response.*;
 import com.project.iam.repositories.*;
 import com.project.iam.utils.GlobalUtility;
 import io.jsonwebtoken.Claims;
@@ -24,6 +21,7 @@ import tools.jackson.databind.ObjectMapper;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 import static com.project.iam.utils.Constants.MasterAction.*;
@@ -87,7 +85,7 @@ public class AccessService {
         List<RequestAccessDetailEntity> listAccess = new ArrayList<>();
         List<SimpleSubmissionDetailDto> catalogReqs = new ArrayList<>();
         for (var item : request.items()){
-            if (!item.action().equals(ACTION_ADD) || !item.action().equals(ACTION_REVOKE))
+            if (!item.action().equals(ACTION_ADD) && !item.action().equals(ACTION_REVOKE))
                 throw new ProcessException(HttpStatus.BAD_REQUEST,"Action not known");
 
             AccessCatalogEntity catalog = accessCatalogRepository.findByAccessName(item.accessCatalogName()).orElseThrow(()->new ProcessException(HttpStatus.NOT_FOUND,"Catalog "+item.accessCatalogName()+" not found"));
@@ -261,5 +259,38 @@ public class AccessService {
             } else
                 userAccessRepository.deleteByUserEntity_IdAndCatalogEntity_Id(submission.getCreatedBy().getId(), d.getCatalog().getId());
         }
+    }
+
+    public DashboardResponse getDashboardData(){
+//        Map<String,Long> dashboardData = requestAccessRepository.getDashboardData();
+        List<DashboardQuery> dashboardData = requestAccessRepository.getDashboardData();
+
+        DashboardResponse resp = DashboardResponse.builder()
+                .approved(0L)
+                .rejected(0L)
+                .inProgress(0L)
+                .waitingAdmin(0L)
+                .waitingManager(0L)
+                .build();
+
+        for (var d : dashboardData){
+            switch (d.getStatus()){
+                case "APPROVED":
+                    resp.setApproved(d.getTotal());
+                    break;
+                case "REJECTED":
+                    resp.setRejected(d.getTotal());
+                    break;
+                case "PENDING_MANAGER":
+                    resp.setWaitingManager(d.getTotal());
+                    break;
+                case "PENDING_ADMIN":
+                    resp.setWaitingAdmin(d.getTotal());
+                    break;
+            }
+        }
+
+        resp.recalculate();
+        return resp;
     }
 }

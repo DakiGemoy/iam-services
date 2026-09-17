@@ -1,11 +1,7 @@
 package com.project.iam.utils;
 
 import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-
-import static com.project.iam.utils.Constants.MasterStatus.*;
 
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Constants {
