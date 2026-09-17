@@ -1,0 +1,1817 @@
+{
+	"info": {
+		"_postman_id": "3849c0cd-223d-4a63-811c-5d0e632d43b4",
+		"name": "IAM Service",
+		"description": "Setiap request membutuhkan token. Kecuali API untuk login.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "44096571",
+		"_collection_link": "https://cidm11.postman.co/workspace/Muamalat-Project~16fab1c3-f73a-4167-8415-69254f491784/collection/44096571-3849c0cd-223d-4a63-811c-5d0e632d43b4?action=share&source=collection_link&creator=44096571"
+	},
+	"item": [
+		{
+			"name": "Access",
+			"item": [
+				{
+					"name": "Get All",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/accesses/get",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"accesses",
+								"get"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success get all access",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/accesses/get",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"accesses",
+										"get"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "TRX_ID",
+									"value": "3d7f72ea8f8e40ba809313001e2c7635"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "321"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Sep 2026 09:03:07 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"00\",\n    \"message\": \"Success\",\n    \"exception\": null,\n    \"data\": [\n        {\n            \"catalog\": \"Figma\",\n            \"baseUrl\": \"https://figma.com\"\n        },\n        {\n            \"catalog\": \"Gitlab\",\n            \"baseUrl\": \"https://gitlab.com\"\n        },\n        {\n            \"catalog\": \"Jenkins\",\n            \"baseUrl\": \"https://jenksin.com\"\n        },\n        {\n            \"catalog\": \"Jira\",\n            \"baseUrl\": \"https://jira.com\"\n        },\n        {\n            \"catalog\": \"Senhasegura\",\n            \"baseUrl\": \"https://senhasegura\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "Token not included",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/accesses/get",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"accesses",
+										"get"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "TRX_ID",
+									"value": "d05f6f266c854963bc50ee659d952056"
+								},
+								{
+									"key": "Set-Cookie",
+									"value": "JSESSIONID=B5142E7C225DD16F04C0F51C5730A899; Path=/; HttpOnly"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json;charset=UTF-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "70"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Sep 2026 09:03:27 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"401\",\n    \"message\": \"Token required\",\n    \"exception\": null,\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Mine",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/accesses/get/me",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"accesses",
+								"get",
+								"me"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success get my access",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/accesses/get/me",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"accesses",
+										"get",
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "TRX_ID",
+									"value": "8a38bf1873cb42aa8d0a1195547dadf2"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "211"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Sep 2026 09:04:13 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"00\",\n    \"message\": \"Success\",\n    \"exception\": null,\n    \"data\": [\n        {\n            \"catalog\": \"Figma\",\n            \"baseUrl\": \"https://figma.com\"\n        },\n        {\n            \"catalog\": \"Jenkins\",\n            \"baseUrl\": \"https://jenksin.com\"\n        },\n        {\n            \"catalog\": \"Jira\",\n            \"baseUrl\": \"https://jira.com\"\n        }\n    ]\n}"
+						},
+						{
+							"name": "Perubahan setelah revoke akses",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/accesses/get/me",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"accesses",
+										"get",
+										"me"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "TRX_ID",
+									"value": "31f24a5f3e024362bef4a64934ec376e"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "157"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Sep 2026 09:35:16 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"00\",\n    \"message\": \"Success\",\n    \"exception\": null,\n    \"data\": [\n        {\n            \"catalog\": \"Figma\",\n            \"baseUrl\": \"https://figma.com\"\n        },\n        {\n            \"catalog\": \"Jira\",\n            \"baseUrl\": \"https://jira.com\"\n        }\n    ]\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const response = pm.response.json();\r",
+									"const token = response.data.token;\r",
+									"console.log(token);\r",
+									"pm.collectionVariables.set(\"token\", token);"
+								],
+								"type": "text/javascript",
+								"packages": {},
+								"requests": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"andri.santoso\",\r\n    \"password\": \"P@ssw0rd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/auth/login",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"andri.santoso\",\r\n    \"password\": \"P@ssw0rd\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/auth/login",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "TRX_ID",
+									"value": "118499eff5014209a6ac674f93edd9db"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "319"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Sep 2026 09:02:21 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"00\",\n    \"message\": \"Success login\",\n    \"exception\": null,\n    \"data\": {\n        \"token\": \"eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbmRyaS5zYW50b3NvIiwiaWRVc2VyIjoxLCJyb2xlcyI6WyJST0xFX0FETUlOIiwiUk9MRV9VU0VSIiwiRkFDVE9SX1BBU1NXT1JEIl0sImlhdCI6MTc4OTYzNTc0MSwiaXNzIjoiSUFNIiwiZXhwIjoxNzg5NjM2MzQxfQ.BSf6GRzr2kacDtw47D70LMfh5_Alwl7vLsNjK-mbTIk\"\n    }\n}"
+						},
+						{
+							"name": "Invalid Password / username",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"username\": \"andri.santosso\",\r\n    \"password\": \"P@ssw0rd\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/auth/login",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"auth",
+										"login"
+									]
+								}
+							},
+							"status": "Unauthorized",
+							"code": 401,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "TRX_ID",
+									"value": "bb069a87e7ad4b48b7fede415a5a73ac"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Sep 2026 09:02:41 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"401\",\n    \"message\": \"Invalid username or password\",\n    \"exception\": null,\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Submission",
+			"item": [
+				{
+					"name": "Request Access",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"reason\": \"Perubahan organisasi\",\r\n    \"items\": [\r\n        {\r\n            \"accessCatalogName\": \"Gitlab\",\r\n            \"action\": \"REVOKE\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/requests",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"requests"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Error menambahkan access yang sudah ada",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"reason\": \"Perubahan organisasi\",\r\n    \"items\": [\r\n        {\r\n            \"accessCatalogName\": \"Jenkins\",\r\n            \"action\": \"ADD\"\r\n        },\r\n        {\r\n            \"accessCatalogName\": \"Senhasegura\",\r\n            \"action\": \"REVOKE\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/requests",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"requests"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "TRX_ID",
+									"value": "62e2267b6edb41fa986055928f5a3f1c"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "88"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Sep 2026 09:08:28 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"400\",\n    \"message\": \"Access to Jenkins already exists\",\n    \"exception\": null,\n    \"data\": null\n}"
+						},
+						{
+							"name": "Error menghapus access yang tidak pernah ada",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"reason\": \"Perubahan organisasi\",\r\n    \"items\": [\r\n        {\r\n            \"accessCatalogName\": \"Jenkins\",\r\n            \"action\": \"REVOKE\"\r\n        },\r\n        {\r\n            \"accessCatalogName\": \"Senhasegura\",\r\n            \"action\": \"REVOKE\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/requests",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"requests"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "TRX_ID",
+									"value": "d8691b3dd9ae4acea9d50a956df3fa02"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "90"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Sep 2026 09:08:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"400\",\n    \"message\": \"Access to Senhasegura never exists\",\n    \"exception\": null,\n    \"data\": null\n}"
+						},
+						{
+							"name": "Success request",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"reason\": \"Perubahan organisasi\",\r\n    \"items\": [\r\n        {\r\n            \"accessCatalogName\": \"Jenkins\",\r\n            \"action\": \"REVOKE\"\r\n        },\r\n        {\r\n            \"accessCatalogName\": \"Senhasegura\",\r\n            \"action\": \"ADD\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/requests",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"requests"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "TRX_ID",
+									"value": "50851471374c48b5a362cecf2d041725"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "81"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Sep 2026 09:09:23 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"00\",\n    \"message\": \"Success create new request\",\n    \"exception\": null,\n    \"data\": null\n}"
+						},
+						{
+							"name": "Error masih ada pengajuan access yang sedang berjalan",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"reason\": \"Perubahan organisasi\",\r\n    \"items\": [\r\n        {\r\n            \"accessCatalogName\": \"Jenkins\",\r\n            \"action\": \"REVOKE\",\"asda\":\"test\"\r\n        },\r\n        {\r\n            \"accessCatalogName\": \"Senhasegura\",\r\n            \"action\": \"ADD\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/requests",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"requests"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "TRX_ID",
+									"value": "5bab8c5d58af44e4894cd598ad2dee87"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "91"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Sep 2026 09:10:45 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"400\",\n    \"message\": \"You still have an active submission\",\n    \"exception\": null,\n    \"data\": null\n}"
+						},
+						{
+							"name": "Error beberapa field tidak boleh kosong",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"reason\": \"Perubahan organisasi\",\r\n    \"items\": [\r\n        {\r\n            // \"accessCatalogName\": \"Jenkins\",\r\n            // \"action\": \"REVOKE\",\r\n            \"tst\": \"test\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/requests",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"requests"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "TRX_ID",
+									"value": "542ff577f8464eddb093ea65ab23665c"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "145"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Sep 2026 09:13:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"400\",\n    \"message\": \"Bad Request\",\n    \"exception\": {\n        \"items[0].action\": \"Can't be empty\",\n        \"items[0].accessCatalogName\": \"Can't be empty\"\n    },\n    \"data\": null\n}"
+						}
+					]
+				},
+				{
+					"name": "My Request",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"items\": [\r\n        {\r\n            \"accessCatalogName\": \"Jenkins\",\r\n            \"reason\": \"test\",\r\n            \"action\": \"REVOKE\"\r\n        },\r\n        {\r\n            \"accessCatalogName\": \"Senhasegura\",\r\n            \"reason\": \"asdasd\",\r\n            \"action\": \"ADD\"\r\n        }\r\n    ]\r\n}"
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/requests/me?size=5&page=1",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"requests",
+								"me"
+							],
+							"query": [
+								{
+									"key": "size",
+									"value": "5"
+								},
+								{
+									"key": "page",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success ambil request yang pernah diajukan",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"items\": [\r\n        {\r\n            \"accessCatalogName\": \"Jenkins\",\r\n            \"reason\": \"test\",\r\n            \"action\": \"REVOKE\"\r\n        },\r\n        {\r\n            \"accessCatalogName\": \"Senhasegura\",\r\n            \"reason\": \"asdasd\",\r\n            \"action\": \"ADD\"\r\n        }\r\n    ]\r\n}"
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/requests/me?size=5&page=1",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"requests",
+										"me"
+									],
+									"query": [
+										{
+											"key": "size",
+											"value": "5"
+										},
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "TRX_ID",
+									"value": "b7c77d0f3e9a4a2295d87e055e019c9d"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "338"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Sep 2026 09:19:05 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"00\",\n    \"message\": \"Success get pagination\",\n    \"data\": [\n        {\n            \"submissionId\": 25,\n            \"status\": \"PENDING_MANAGER\",\n            \"lastUpdated\": \"2026-09-17T16:18:59.747413\",\n            \"lastUpdatedBy\": \"andri.santoso\"\n        },\n        {\n            \"submissionId\": 24,\n            \"status\": \"REJECTED\",\n            \"lastUpdated\": \"2026-09-17T16:16:48.349756\",\n            \"lastUpdatedBy\": \"eka.wulandari\"\n        }\n    ],\n    \"currentPage\": 1,\n    \"totalData\": 2,\n    \"totalPage\": 1\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Approval",
+			"item": [
+				{
+					"name": "Need Approve",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/approvals",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"approvals"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success ambil data yang perlu di approve (0 data)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/approvals",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"approvals"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "TRX_ID",
+									"value": "924ba3dd51e34927b6196484cd9611ba"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "78"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Sep 2026 09:14:53 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"00\",\n    \"message\": \"Success get approval data\",\n    \"exception\": null,\n    \"data\": []\n}"
+						},
+						{
+							"name": "Success ambil data yang perlu di approve",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/approvals",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"approvals"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "TRX_ID",
+									"value": "9007e9a2d40542fc99c4b17c6e087a4e"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "188"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Sep 2026 09:15:53 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"00\",\n    \"message\": \"Success get approval data\",\n    \"exception\": null,\n    \"data\": [\n        {\n            \"submissionId\": 24,\n            \"status\": \"PENDING_MANAGER\",\n            \"lastUpdated\": \"2026-09-17T16:09:23.898223\",\n            \"lastUpdatedBy\": null\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Update Request Access",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"action\": \"APPROVE\",\r\n    \"notes\": \"Oke\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{BASE_URL}}/approvals/31/action",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"approvals",
+								"31",
+								"action"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success reject approval",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"action\": \"REJECT\",\r\n    \"notes\": \"Tidak bagus\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/approvals/24/action",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"approvals",
+										"24",
+										"action"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "TRX_ID",
+									"value": "bf91fc797c6c40abb5c250789f248979"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Sep 2026 09:16:48 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"00\",\n    \"message\": \"Success update request access\",\n    \"exception\": null,\n    \"data\": null\n}"
+						},
+						{
+							"name": "Error approval tidak sesuai role / posisi",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"action\": \"APPROVED\",\r\n    \"notes\": \"Oke\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/approvals/26/action",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"approvals",
+										"26",
+										"action"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "TRX_ID",
+									"value": "cc0807d16cbc413ebb3cc7cb49fc64c0"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "108"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Sep 2026 09:21:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"400\",\n    \"message\": \"You are not allowed to make a change of this request\",\n    \"exception\": null,\n    \"data\": null\n}"
+						},
+						{
+							"name": "Success approve manager",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"action\": \"APPROVE\",\r\n    \"notes\": \"Oke\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/approvals/27/action",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"approvals",
+										"27",
+										"action"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "TRX_ID",
+									"value": "2b3acc9d82394912abfa4c6192b861e7"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Sep 2026 09:25:18 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"00\",\n    \"message\": \"Success update request access\",\n    \"exception\": null,\n    \"data\": null\n}"
+						},
+						{
+							"name": "Success approve Admin",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"action\": \"APPROVE\",\r\n    \"notes\": \"Oke\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{BASE_URL}}/approvals/27/action",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"approvals",
+										"27",
+										"action"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "TRX_ID",
+									"value": "2f61ab8ded214af9bf9a247401f92777"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "84"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Sep 2026 09:34:33 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"00\",\n    \"message\": \"Success update request access\",\n    \"exception\": null,\n    \"data\": null\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Dashboard",
+			"item": [
+				{
+					"name": "Get dashboard",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BASE_URL}}/dashboard/metrics",
+							"host": [
+								"{{BASE_URL}}"
+							],
+							"path": [
+								"dashboard",
+								"metrics"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success get dashboard",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{BASE_URL}}/dashboard/metrics",
+									"host": [
+										"{{BASE_URL}}"
+									],
+									"path": [
+										"dashboard",
+										"metrics"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": null,
+							"header": [
+								{
+									"key": "TRX_ID",
+									"value": "ba165a7a9fbd4dc1b15dec928d046021"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "X-XSS-Protection",
+									"value": "0"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, no-store, max-age=0, must-revalidate"
+								},
+								{
+									"key": "Pragma",
+									"value": "no-cache"
+								},
+								{
+									"key": "Expires",
+									"value": "0"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "172"
+								},
+								{
+									"key": "Date",
+									"value": "Thu, 17 Sep 2026 10:04:42 GMT"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=60"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"code\": \"00\",\n    \"message\": \"Success get dashboard data\",\n    \"exception\": null,\n    \"data\": {\n        \"approved\": 1,\n        \"inProgress\": 1,\n        \"rejected\": 3,\n        \"totalRequest\": 5,\n        \"waitingAdmin\": 0,\n        \"waitingManager\": 1\n    }\n}"
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"requests": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "BASE_URL",
+			"value": ""
+		},
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}
