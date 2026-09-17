@@ -35,4 +35,6 @@ public class RequestAccessHistoryEntity {
 
     private Long updatedBy;
     private LocalDateTime updatedAt;
+    private String notes;
+    private String reasonSubmission;
 }

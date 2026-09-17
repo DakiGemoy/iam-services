@@ -1,6 +1,5 @@
 package com.project.iam.config;
 
-import com.project.iam.models.JwtProperties;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,7 +21,6 @@ public class SecurityConfig {
     private final CustomAccessDeniedHandler accessDeniedHandler;
     private final JwtFilter jwtFilter;
     private final WebFilter webFilter;
-    private final JwtProperties jwtProperties;
 
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http){
@@ -32,9 +30,6 @@ public class SecurityConfig {
                         .requestMatchers(
                                 "/api/v1/auth/login"
                         ).permitAll()
-                        .requestMatchers(jwtProperties.getApiPermission().getUser().toArray(new String[0])).hasRole("USER")
-                        .requestMatchers(jwtProperties.getApiPermission().getManager().toArray(new String[0])).hasRole("MANAGER")
-                        .requestMatchers(jwtProperties.getApiPermission().getAdmin().toArray(new String[0])).hasRole("ADMIN")
                         .anyRequest().authenticated()
                 ).exceptionHandling(exc -> exc
                         .authenticationEntryPoint(authEntryPoint)

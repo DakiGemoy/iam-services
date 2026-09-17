@@ -22,17 +22,7 @@ public class Constants {
     public static class MasterAction{
         public static String ACTION_ADD = "ADD";
         public static String ACTION_REVOKE = "REVOKE";
-    }
-
-    @Getter
-    @AllArgsConstructor
-    public enum StatusFlow{
-        PEND_MANAGER(P_MANAGER, P_ADMIN,"Manager"),
-        PEND_ADMIN(P_ADMIN, APPROVED,"Admin"),
-        ;
-
-        private final String statusName;
-        private final String statusIfApproved;
-        private final String roleCanAccess;
+        public static String ACTION_APPROVE = "APPROVE";
+        public static String ACTION_REJECT = "REJECT";
     }
 }

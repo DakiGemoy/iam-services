@@ -32,4 +32,7 @@ public class RequestAccessEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "created_by", referencedColumnName = "id", nullable = false)
     private UserEntity createdBy;
+
+    private String notes;
+    private String reasonSubmission;
 }

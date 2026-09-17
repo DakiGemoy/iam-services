@@ -10,4 +10,5 @@ public interface UserAccessRepository extends JpaRepository<UserAccessEntity, Lo
     List<UserAccessEntity> findByUserEntity_Id(Long userId);
     Boolean existsByUserEntity_IdAndCatalogEntity_Id(Long userId, Long catalogId);
     Boolean existsByUserEntity_IdAndCatalogEntity_IdNot(Long userId, Long catalogId);
+    void deleteByUserEntity_IdAndCatalogEntity_Id(Long userEntity, Long catalogEntity);
 }

@@ -21,4 +21,13 @@ public class AccessController {
                 .data(accessService.getAllAccessData())
                 .build();
     }
+
+    @GetMapping("/get/me")
+    public BaseResponse<?,?> getPrivateListAccess(){
+        return BaseResponse.builder()
+                .code("00")
+                .message("Success")
+                .data(accessService.getAllPrivateAccessData())
+                .build();
+    }
 }

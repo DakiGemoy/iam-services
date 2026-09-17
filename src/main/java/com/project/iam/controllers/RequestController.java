@@ -1,14 +1,12 @@
 package com.project.iam.controllers;
 
 import com.project.iam.models.request.SubmissionRequest;
+import com.project.iam.models.response.BasePaginationResponse;
 import com.project.iam.models.response.BaseResponse;
 import com.project.iam.services.AccessService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/requests")
@@ -24,5 +22,13 @@ public class RequestController {
                 .code("00")
                 .message("Success create new request")
                 .build();
+    }
+
+    @GetMapping("/me")
+    public BasePaginationResponse<?> getRequestAssigned(
+            @RequestParam(defaultValue = "1") Integer page,
+            @RequestParam Integer size
+    ){
+        return accessService.getPrivateSubmission(size, page);
     }
 }
