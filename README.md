@@ -8,6 +8,10 @@ Saat pertama kali jalankan aplikasi ini, harap untuk execute script database ini
 
 
 
+File script inisiasi database dan seed berada pada root project, didalam folder /script
+
+
+
 Secara keseluruhan service ini memiliki beberapa api
 
 
@@ -95,6 +99,4 @@ ini adalah endpoint dashboard untuk melihat seluruh data yang sedang berjalan pa
 
 
 **Berikut adalah link evidence aplikasi berjalan** -> https://drive.google.com/file/d/1OHgJOVHMwf8KKord8Gca2MQiLD79iA7O/view?usp=sharing
-
-
 
