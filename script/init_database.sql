@@ -63,10 +63,12 @@ CREATE TABLE request_access (
     assign_to_user BIGINT,
     assign_to_role BIGINT NOT NULL,
     updated_by BIGINT,
+    created_by BIGINT NOT NULL,
     last_updated TIMESTAMP,
 
     CONSTRAINT fk_request_access_assign_user FOREIGN KEY (assign_to_user) REFERENCES "user"(id),
-    CONSTRAINT fk_request_access_assign_role FOREIGN KEY (assign_to_role) REFERENCES role(id)
+    CONSTRAINT fk_request_access_assign_role FOREIGN KEY (assign_to_role) REFERENCES role(id),
+    CONSTRAINT fk_request_access_created_by FOREIGN KEY (created_by) REFERENCES "user"(id)
 );
 
 CREATE TABLE request_access_history (
