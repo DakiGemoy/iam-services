@@ -20,8 +20,8 @@ public class Constants {
 
     @NoArgsConstructor(access = AccessLevel.PRIVATE)
     public static class MasterAction{
-        public static String ADD = "ADD";
-        public static String REVOKE = "REVOKE";
+        public static String ACTION_ADD = "ADD";
+        public static String ACTION_REVOKE = "REVOKE";
     }
 
     @Getter

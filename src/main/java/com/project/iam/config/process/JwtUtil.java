@@ -6,6 +6,8 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import java.nio.charset.StandardCharsets;
@@ -34,6 +36,23 @@ public class JwtUtil {
                 .verifyWith(Keys.hmacShaKeyFor(jwtProperties.getToken().getSecret().getBytes(StandardCharsets.UTF_8)))
                 .build()
                 .parseSignedClaims(token)
+                .getPayload();
+    }
+
+    private String getCurrentToken(){
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
+        if (auth!=null && auth.getDetails()!=null)
+            return auth.getDetails().toString();
+
+        return null;
+    }
+
+    public Claims getClaimsFromToken(){
+        return Jwts.parser()
+                .verifyWith(Keys.hmacShaKeyFor(jwtProperties.getToken().getSecret().getBytes(StandardCharsets.UTF_8)))
+                .build()
+                .parseSignedClaims(getCurrentToken())
                 .getPayload();
     }
 

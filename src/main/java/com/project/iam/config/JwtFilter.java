@@ -52,8 +52,10 @@ public class JwtFilter extends OncePerRequestFilter {
 
                     List<SimpleGrantedAuthority> role = rolesClaim.stream().map(SimpleGrantedAuthority::new).toList();
                     UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(username,null, role);
+                    auth.setDetails(token);
 
                     SecurityContextHolder.getContext().setAuthentication(auth);
+
                 } else {
                     log.error("Token expired");
                     request.setAttribute("jwtMessage","Token expired");

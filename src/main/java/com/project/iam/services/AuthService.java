@@ -2,8 +2,10 @@ package com.project.iam.services;
 
 import com.project.iam.config.exception.ProcessException;
 import com.project.iam.config.process.JwtUtil;
+import com.project.iam.entities.UserEntity;
 import com.project.iam.models.request.LoginRequest;
 import com.project.iam.models.response.LoginResponse;
+import com.project.iam.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -26,15 +28,18 @@ public class AuthService {
 
     private final AuthenticationManager authManager;
     private final JwtUtil jwtUtil;
+    private final UserRepository userRepository;
 
     public LoginResponse login(LoginRequest request){
         try {
             Authentication auth = authManager.authenticate(new UsernamePasswordAuthenticationToken(request.username(),request.password()));
             SecurityContextHolder.getContext().setAuthentication(auth);
+            UserEntity userData = userRepository.findByUsername(request.username()).orElseThrow();
 
             Map<String, Object> claims = new HashMap<>();
             auth.getAuthorities();
             claims.put("roles",auth.getAuthorities().stream().map(GrantedAuthority::getAuthority).toList());
+            claims.put("idUser",userData.getId());
 
             return LoginResponse.builder()
                     .token(jwtUtil.generateToken(request.username(),claims))
